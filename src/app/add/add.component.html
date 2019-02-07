@@ -1,0 +1,43 @@
+<div class="container">
+
+    <div class="row">
+  
+        <div class="col-md-6">
+            <form #loginForm="ngForm">
+              <div class="form-group">
+                <label for="email">Name:</label>
+                <input type="text" required class="form-control" [(ngModel)]="name" id="name" placeholder="Enter name" name="name">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Mobile Number:</label>
+                <input type="text" required class="form-control" [(ngModel)]="mob" id="pwd" placeholder="Enter Mob number" name="mobnunber">
+              </div>
+              <div class="form-group">
+                  <label for="pwd">Age:</label>
+                  <input type="text" required class="form-control" [(ngModel)]="age" id="age" placeholder="Enter age" name="age">
+              </div>
+              <div class="form-group">
+                  <label for="pwd">salary:</label>
+                  <input type="text" required class="form-control" [(ngModel)]="salary" id="salary" placeholder="Enter Salary" name="salary">
+              </div>
+              <button type="submit"   (click)="saveDetailsHandler()" class="btn btn-success" [disabled]="loginForm.form.invalid">Submit</button>
+            </form>
+        </div>
+    
+        <div class="col-md-6">
+            <h3>All Contact Detals</h3>
+            <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Mob. No</th>
+                  <th>View</th>
+                </tr>
+                <tr *ngFor="let user of allUsers let i = index" [attr.data-index]="i">
+                  <td>{{user.name}}</td>
+                  <td>{{user.mob}}</td>
+                  <td><button class="btn btn-sm btn-primary" (click)="viewDetailsHandler(i)">View</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
